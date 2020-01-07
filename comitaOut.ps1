@@ -39,13 +39,13 @@ if (($arjFiles | Measure-Object).count -gt 0) {
 
 	$files = Get-ChildItem "$outcomingPost\$incomingFiles"
 
-	$body = "Архив(ы) с отчетностью успешно скопирован(ы) на отправку`n"
+	$body = "Файлы успешно отправлены!`n"
 	$msg = $files | ForEach-Object { $_.Name } | Out-String
 	$body += $msg
 	if (($files | Measure-Object).count -gt 0) {
 		if (Test-Connection $mailServer -Quiet -Count 2) {
 			$encoding = [System.Text.Encoding]::UTF8
-			$title = "Архив(ы) на отправке"
+			$title = "Отправлены сообщения по 440П"
 			Send-MailMessage -To $mailAddr -Body $body -Encoding $encoding -From $mailFrom -Subject $title -SmtpServer $mailServer
 		}
 		else {

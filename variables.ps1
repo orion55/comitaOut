@@ -19,3 +19,5 @@ $curDate = Get-Date -Format "ddMMyyyy"
 [string]$mailAddr = "tmn-goe@tmn.apkbank.ru"
 [string]$mailServer = "191.168.6.50"
 [string]$mailFrom = "robot311@tmn.apkbank.apk"
+
+[string]$arj32 ="$curDir\util\arj32.exe"
